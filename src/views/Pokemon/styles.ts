@@ -2,11 +2,13 @@ import styled from "styled-components";
 import { Container as ContainerBase, ContainerProps } from "react-bootstrap";
 
 export const Container = styled(ContainerBase)<ContainerProps>`
-  & > h1 {
-    text-transform: capitalize;
-  }
+  margin-top: 2em;
+`;
 
-  & > img {
-    width: 200px;
-  }
+export const Title = styled.h1`
+  text-transform: capitalize;
+`;
+
+export const Image = styled.img`
+  width: 200px;
 `;

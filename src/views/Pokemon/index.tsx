@@ -37,8 +37,8 @@ function Pokemon() {
     <>
       <Header />
       <S.Container fluid="lg">
-        <h1>{pokemonData?.name}</h1>
-        <img src={pokemonData?.sprites.front_default} />
+        <S.Title>{pokemonData?.name}</S.Title>
+        <S.Image src={pokemonData?.sprites.front_default} />
       </S.Container>
     </>
   )
