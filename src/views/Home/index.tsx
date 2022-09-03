@@ -7,6 +7,8 @@ import api from '../../services/api'
 import { Pokemon, PokemonResult } from '../../types'
 import Header from '../../components/Header'
 import Card from '../../components/Card'
+import ButtonWithSass from '../../components/ButtonWithSass'
+import Button from '../../components/Button'
 // import { AppState, setPokemons } from '../../store'
 
 function Home() {
@@ -57,6 +59,18 @@ function Home() {
     <>
       <Header />
       <Container fluid="lg">
+        <ButtonWithSass label='Primary' onClick={() => { }} />
+        <ButtonWithSass label='Primary' type='primary' onClick={() => { }} />
+        <ButtonWithSass label='Secondary' type='secondary' onClick={() => { }} />
+        <ButtonWithSass label='Success' type='success' onClick={() => { }} />
+        <ButtonWithSass label='Danger' type='danger' onClick={() => { }} />
+        <hr />
+        <Button>Default</Button>
+        <Button color='primary'>Primary</Button>
+        <Button color='secondary'>Secondary</Button>
+        <Button color='success'>Success</Button>
+        <Button color='danger'>Danger</Button>
+        <hr />
         {pokemonGroups.map((group: Array<Pokemon>, index) => (
           <CardGroup key={index} className="mb-3">
             {group.map((pokemon: Pokemon) => (
