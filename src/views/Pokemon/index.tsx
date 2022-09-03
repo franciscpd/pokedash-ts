@@ -1,5 +1,4 @@
 import { useCallback, useEffect, useState } from 'react';
-import { Container, Placeholder } from 'react-bootstrap'
 // import { useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom'
 
@@ -8,7 +7,7 @@ import api from '../../services/api';
 // import { AppState } from '../../store';
 import { Pokemon as PokemonType } from '../../types';
 
-import './styles.scss'
+import * as S from './styles';
 
 function Pokemon() {
   const [pokemonData, setPokemonData] = useState<PokemonType>()
@@ -37,10 +36,10 @@ function Pokemon() {
   return (
     <>
       <Header />
-      <Container fluid="lg" className='pokemon'>
+      <S.Container fluid="lg">
         <h1>{pokemonData?.name}</h1>
         <img src={pokemonData?.sprites.front_default} />
-      </Container>
+      </S.Container>
     </>
   )
 }

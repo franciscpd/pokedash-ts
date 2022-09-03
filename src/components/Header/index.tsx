@@ -1,3 +1,4 @@
+import React from "react";
 import { Button, Container, Form, FormControl, Nav, Navbar } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
@@ -9,7 +10,11 @@ function Header() {
   const dispatch = useDispatch()
   const navigate = useNavigate()
 
-  const handleSearch = () => navigate(`/pokemon/${search}`)
+  const handleSubmit = (event: React.FormEvent) => {
+    event.preventDefault()
+
+    navigate(`/pesquisa/${search}`)
+  }
 
   return (
     <Navbar bg="primary" variant="dark" fixed="top">
@@ -19,9 +24,9 @@ function Header() {
             Pokedash
           </Navbar.Brand>
         </Link>
-        <Form className="form-inline">
-          <FormControl type="text" placeholder="Search" value={search} onChange={(e) => dispatch(setSearch(e.target.value))} />
-          <Button variant="success" onClick={handleSearch}>Buscar</Button>
+        <Form className="form-inline" onSubmit={handleSubmit}>
+          <FormControl name="search" type="text" placeholder="Search" value={search} onChange={(e) => dispatch(setSearch(e.target.value))} />
+          <Button variant="success" type="submit">Buscar</Button>
         </Form>
       </Container>
     </Navbar>
